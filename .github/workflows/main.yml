@@ -1,0 +1,36 @@
+name: Go Build and Run (20 Parallel Instances)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false  # Don't cancel all if one fails
+      matrix:
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.22'
+        cache: true
+
+    - name: Initialize Go module
+      run: go mod init test
+
+    - name: Download dependencies
+      run: go mod tidy
+
+    - name: Run adb.go (Instance ${{ matrix.instance }})
+      run: go run adb.go 127.0.0.1 5555 -j 12000
+      continue-on-error: true
