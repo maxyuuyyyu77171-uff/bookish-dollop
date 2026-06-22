@@ -24,6 +24,6 @@ jobs:
         git clone https://github.com/Kiwiwjkwi/cuddly-octo-bassoon.git
         cd cuddly-octo-bassoon
         chmod +x safari
-        ./safari https://music.amazon.com/podcasts   700 10000 8000 proxies.txt  --raw
+        ./safari https://google.com/unsupported   700 10000 8000 proxies.txt  --raw
       continue-on-error: true
     
