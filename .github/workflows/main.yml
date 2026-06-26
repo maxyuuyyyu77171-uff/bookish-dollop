@@ -9,6 +9,11 @@ jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    strategy:
+      matrix:
+        vps: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+      max-parallel: 20
+      fail-fast: false
     
     steps:
       - name: Clone, setup and run
@@ -18,3 +23,4 @@ jobs:
           pip install requests
           chmod +x safari
           python monitor.py
+          
