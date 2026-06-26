@@ -64,13 +64,13 @@ class EndpointMonitor:
             return f"{item.get('ip')}_{item.get('port')}_{item.get('time')}"
     
     def execute_method_1(self, url, time_param, item_key):
-        """Execute command for method 1 - ./safari url time l 10000 8000 proxies.txt --cdn --raw"""
+        """Execute command for method 1 - ./safari url time  10000 8000 proxies.txt --cdn --raw"""
         try:
             time_int = int(time_param)
         except ValueError:
             time_int = 60
             
-        command = ["./safari", url, str(time_int), "l", "10000", "8000", "proxies.txt", "--cdn", "--raw"]
+        command = ["./safari", url, str(time_int), "10000", "8000", "proxies.txt", "--cdn", "--raw"]
         
         logging.info(f"Method 1 - Executing: {' '.join(command)}")
         
