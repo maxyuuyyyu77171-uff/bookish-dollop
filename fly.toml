@@ -1,0 +1,12 @@
+app = "your-app-name"
+primary_region = "iad" # Change to your preferred region
+
+[build]
+  image = "debian:latest" # You can use your custom docker image here
+
+[processes]
+  app = "sleep 3600" # This will run when the machine starts
+
+[experimental]
+  auto_build = true
+  
